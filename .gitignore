@@ -1,0 +1,26 @@
+# Experiment design lab — ignore rules.
+#
+# The rule this file enforces: nothing generated should ever be committed, because a committed
+# generated file is a file that can silently disagree with the code that produces it.
+
+# Python bytecode and caches.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments — this project uses `venv-edl`, named so it is identifiable beside
+# `venv-saas` and `venv-h360` in the sibling projects.
+venv-edl/
+.venv/
+venv/
+
+# Notebook checkpoints — the notebook itself is committed, its checkpoints are not.
+.ipynb_checkpoints/
+
+# Matplotlib and Jupyter caches.
+.mplcache/
+.ipython/
+
+# Environments and secrets. No secrets exist in this project, and this line keeps it that way.
+.env
+*.key

@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "source": "holding-360 published ground truth (synthetic)",
+    "synthetic_data": true,
+    "line_filter": "BTM customer invoices only",
+    "treated_skus": [
+      "BTM-2204",
+      "BTM-2205",
+      "BTM-1111",
+      "BTM-1112"
+    ],
+    "treated_months": [
+      3,
+      9,
+      11
+    ],
+    "seed": 7
+  },
+  "panel": {
+    "lines": 3911,
+    "months": 18,
+    "period": [
+      "2025-01",
+      "2026-06"
+    ],
+    "control_lines": 3786,
+    "treated_lines": 125,
+    "discounted_lines": 27,
+    "mislabelled_lines": 0,
+    "cell_counts": {
+      "False_False": 2943,
+      "False_True": 843,
+      "True_False": 98,
+      "True_True": 27
+    }
+  },
+  "effect": {
+    "cell_means": {
+      "False_False": 1675.95,
+      "False_True": 1699.61,
+      "True_False": 1428.64,
+      "True_True": -418.4
+    },
+    "naive_own_change": -1847.05,
+    "control_change": 23.66,
+    "did_estimate": -1870.71,
+    "truth_att": -1900.37,
+    "naive_abs_error": 53.32,
+    "did_abs_error": 29.66,
+    "welch_t": -6.897,
+    "welch_p": 6.0156720105747e-08,
+    "bootstrap_ci": {
+      "point": -1870.71,
+      "low": -2468.92,
+      "high": -1296.04,
+      "covers_truth": true
+    }
+  },
+  "parallel_trends": {
+    "control_raw_sd": 72.51,
+    "control_fixed_weight_sd": 0.0,
+    "control_fixed_weight_value": 1681.22,
+    "mix_gap_sd": 72.51,
+    "placebo_did": 25.71,
+    "placebo_ratio": 0.0137,
+    "verdict": "no time-varying common shock exists; the second difference removes a mix artefact worth MXN 23.66 against an effect of MXN 1,900.37"
+  },
+  "power": {
+    "retrospective_treated_lines": 27,
+    "margin": {
+      "5%": {
+        "effect_mxn": 71.43,
+        "effect_size": 0.0752,
+        "n_per_arm": 2777,
+        "formula_power": 0.8,
+        "simulated_power": 0.796
+      },
+      "10%": {
+        "effect_mxn": 142.86,
+        "effect_size": 0.1504,
+        "n_per_arm": 695,
+        "formula_power": 0.8,
+        "simulated_power": 0.811
+      },
+      "15%": {
+        "effect_mxn": 214.3,
+        "effect_size": 0.2256,
+        "n_per_arm": 309,
+        "formula_power": 0.8,
+        "simulated_power": 0.803
+      }
+    },
+    "volume": {
+      "5%": {
+        "lift_units": 0.68,
+        "effect_size": 0.048,
+        "n_per_arm": 6805
+      },
+      "10%": {
+        "lift_units": 1.37,
+        "effect_size": 0.0961,
+        "n_per_arm": 1702
+      },
+      "20%": {
+        "lift_units": 2.74,
+        "effect_size": 0.1921,
+        "n_per_arm": 426
+      },
+      "30%": {
+        "lift_units": 4.1,
+        "effect_size": 0.2882,
+        "n_per_arm": 190
+      }
+    },
+    "volume_inputs": {
+      "unit_mean": 13.68,
+      "unit_sd": 14.24,
+      "available_treated_sku_months": 70
+    },
+    "price_elasticity_present": false
+  },
+  "decision": "The markdown costs MXN 1,900.37 of margin per unit, and the effect is measured to within 2% of the known truth. The retrospective design is adequate for the margin question and CANNOT answer the demand question, because no elasticity exists in this world. Decision: treat the markdown SKUs as a cost decision (already flagged by holding-360's finding F-04), not an experiment decision \u2014 and if the business wants to know whether clearance sells more, it needs a prospective test with roughly 1,702 SKU-months per arm to detect a 10% lift."
+}

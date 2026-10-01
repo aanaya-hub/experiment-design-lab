@@ -1,0 +1,16 @@
+metric,value
+truth_att,-1900.3703703703704
+naive_own_change,-1847.0483975812547
+control_change,23.660159181023346
+did,-1870.708556762278
+welch_t,-6.897041952390709
+welch_p,6.0156720105747e-08
+control_raw_sd,72.50915855034975
+control_fixed_weight_sd,4.679311636459957e-13
+placebo_did,25.70787091239663
+n_10pct_margin_effect,695
+n_5pct_margin_effect,2777
+n_15pct_margin_effect,309
+n_10pct_volume_effect,1702
+treated_lines_in_cell,27
+panel_lines,3911
